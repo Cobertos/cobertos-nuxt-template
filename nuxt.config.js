@@ -130,24 +130,17 @@ export default {
     //If you get weird caching errors, delete node_modules/.cache
     //or disable this...
     //hardSource: true,
-
-    extend(config) {
-      config.module.rules.push({
-        resourceQuery: /blockType=test/,
-        // TODO: Doesn't work with null-loader. I'm pretty sure that Vue does
-        // a string search for null-loader in the stack and treats it differently
-        // from looking at the GitHub issues
-        loader: require.resolve('./vue-loader-null-loader')
-      });
-    }
   },
-  // router: {
-  //   //middleware: 'redirect',
-  //   //Force must use trailing / to be consistent with Amazon AWS S3
-  //   //Requests without the trailing slash (except on the root) will fail
-  //   //which is what we want
-  //   //trailingSlash: true
-  // },
+  router: {
+    // Force trailing slashes to be removed from all routes. If deploying statically,
+    // then this will need to match your deployment provider! This is mostly so there
+    // aren't duplicate routes for SEO purposes... All internal links should follow this
+    // format as well, otherwise they will cause provider-dependent behavior (most likely
+    // a redirect!)
+    // For example, Vercel is configurable (https://vercel.com/docs/configuration#project/trailing-slash)
+    // AWS S3 requires a value of true (it will always add slashes
+    trailingSlash: false
+  },
   // == Server ==
   server: {
     port: 8897,

@@ -13,7 +13,7 @@ export class AssertionError extends Error {}
  * @param {string} message The error message to show if it failed
  * @param {AssertionError} error An AssertionError subclass to throw with
  */
-export function _assert(condition, message = "Assertion Error", error = AssertionError) {
+export function _assert(condition, message = 'Assertion Error', error = AssertionError) {
   if (!condition) {
     throw new error(message);
   }
