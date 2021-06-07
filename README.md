@@ -63,3 +63,4 @@ If you're going to update, you should consider running `npx create-nuxt-app tmp-
 * Robots.txt, favicon if possible, 
 * head() and meta tags like canonical built in
 * Add a test to crawl the website a look for 308's (trailing slash incorrect links) and other broken links
+* Modal exists in `feat/modal`, would be nice to conditionally include it (via-tree shaking or something?)
